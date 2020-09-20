@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-    <div class="row">
+    <div class="row mt-2">
         <div class="col">
             <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="<?= base_url('/admin') ?>">Admin Page</a>
@@ -17,17 +17,20 @@
         </div>
     </div>
 
-  <div class="row">
+  <div class="row mt-2">
     <div class="col-4">
         <div class="card" style="width: 18rem;">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="<?= base_url('/admin/kategori') ?>">kategori</a></li>
-                <li class="list-group-item"><a href="<?= base_url('/admin/menu') ?>">menu</a></li>
+                <li class="list-group-item"><a href="<?= base_url('/admin/kategori') ?>">Kategori</a></li>
+                <li class="list-group-item"><a href="<?= base_url('/admin/menu') ?>">Menu</a></li>
+                <li class="list-group-item"><a href="<?= base_url('/admin/pelanggan') ?>">Pelanggan</a></li>
+                <li class="list-group-item"><a href="<?= base_url('/admin/order') ?>">Order</a></li>
+                <li class="list-group-item"><a href="<?= base_url('/admin/orderdetail') ?>">Order Detail</a></li>
                 <li class="list-group-item"><a href="<?= base_url('/admin/user') ?>">user</a></li>
             </ul>
         </div>
     </div>
-    <div class="col-8">
+    <div class="col-8 px-2">
         <?= $this->renderSection('content') ?>
     </div>
   </div>
