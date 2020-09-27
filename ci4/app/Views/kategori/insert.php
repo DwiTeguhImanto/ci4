@@ -17,7 +17,7 @@
 
 
 <div class="col">
-    <h3> FORM INSERT DATA</h3>
+    <h3> FORM INSERT DATA KATEGORI</h3>
 </div>
 
 <div class="col-8">
