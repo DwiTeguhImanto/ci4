@@ -7,6 +7,10 @@ class Pelanggan_M extends  Model
 {
     // read db
     protected $table = 'tblpelanggan';
+
+    protected $primaryKey = 'idpelanggan';
+
+    protected $allowedFields = ['aktif'];
    
 }
 

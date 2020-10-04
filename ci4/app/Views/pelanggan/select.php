@@ -49,8 +49,17 @@
         <td>
             <a href="<?=base_url()?>/admin/pelanggan/delete/<?= $value['idpelanggan'] ?>"><img src="<?=base_url('/icon/trashcan.svg')?>"></a>
         </td>
+
+        <?php
+            if ($value['aktif']==1) {
+                $aktif = "AKTIF";
+            } else {
+                $aktif = "NON AKTIF";
+            }
+            
+        ?>
         <td>
-            <a href="<?=base_url()?>/admin/pelanggan/delete/<?= $value['idpelanggan'] ?>">Aktif</a>
+            <a href="<?=base_url()?>/admin/pelanggan/update/<?= $value['idpelanggan']?>/<?= $value['aktif'] ?>"><?= $aktif ?></a>
         </td>
 
     </tr>
