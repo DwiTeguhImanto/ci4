@@ -8,33 +8,19 @@ class Order extends BaseController
 	public function index()
 	{
         $db = \Config\Database::connect();
-        $sql= "SELECT * FROM tblorder ORDER BY status ASC";
+        $sql= "SELECT * FROM vorder ORDER BY status ASC";
         
         
         $result = $db->query($sql);
 
         $row = $result->getResult('array');
 
-        echo $row[0]['idorder'];
-        echo "<br>";
+        $data = [
+            'judul' => 'DATA ORDER ',
+            'order' =>$row
+        ];
 
-        foreach ($row as $key ) {
-            echo $key['tglorder'];
-            echo "<br>";
-        }
-
-        // echo $row[0]->idorder;
-        // echo "<br>";
-        // echo $row[0]->total;
-
-        // foreach ($row as $key ) {
-        //     echo $key->tglorder;
-        //     echo "<br>";
-        // }
-        echo "<hr>";
-        echo "<pre>";
-        print_r($row);
-        echo "</pre>";
+        echo view('order/select', $data);
 	}
 
 	//--------------------------------------------------------------------
