@@ -84,7 +84,7 @@ class Menu extends BaseController
 			'harga' => $request->getPost('harga')
 		];
 
-		// print_r($data);
+		
 		$model = new Menu_M();
 		$model -> insert($data);
 		$file->move('./upload');
@@ -99,6 +99,50 @@ class Menu extends BaseController
 		// }
 
 		
+	}
+
+	public function find($id = null)
+	{
+		$model = new Menu_M();
+		$menu = $model ->find($id);
+
+		$kategorimodel = new Kategori_M();
+		$kategori = $kategorimodel->findAll();
+
+		
+
+		$data = [
+			'judul' => 'UPDATE DATA ',
+			'menu' => $menu,
+			'kategori' => $kategori
+		];
+
+		return view("menu/update",$data);
+
+	}
+
+	public function update()
+	{
+		$id = $this->request->getPost('idmenu');
+		$file = $this->request->getFile('gambar');
+		$name = $file->getName();
+
+		if (empty($name)) {
+			$name = $this->request->getPost('gambar');
+		}else {
+			$file->move('./upload');
+		}
+
+		$data = [
+			'idkategori' => $this->request->getPost('idkategori'),
+			'menu' => $this->request->getPost('menu'),
+			'gambar' => $name,
+			'harga' => $this->request->getPost('harga'),
+		];
+
+		$model = new Menu_M();
+		$model -> update($id,$data);
+		return redirect()->to(base_url("/admin/menu"));
 	}
     
     public function option()
