@@ -86,9 +86,19 @@ class Menu extends BaseController
 
 		
 		$model = new Menu_M();
-		$model -> insert($data);
-		$file->move('./upload');
-		return redirect()->to(base_url("/admin/menu"));
+		
+
+		if ($model -> insert($data)===false) {
+			$error = $model->errors();
+			session()->setFlashdata('info', $error);
+			return redirect()->to(base_url("/admin/menu/create"));
+		} else {
+			$file->move('./upload');
+			return redirect()->to(base_url("/admin/menu"));
+		}
+		
+
+		
 
 		// if ($model -> insert($_POST)===false) {
 		// 	$error = $model->errors();
@@ -141,8 +151,17 @@ class Menu extends BaseController
 		];
 
 		$model = new Menu_M();
-		$model -> update($id,$data);
-		return redirect()->to(base_url("/admin/menu"));
+		
+	
+
+		if ($model -> update($id,$data)===false) {
+			$error = $model->errors();
+			session()->setFlashdata('info', $error);
+			return redirect()->to(base_url("/admin/menu/find/$id"));
+		} else {
+				return redirect()->to(base_url("/admin/menu"));
+		}
+		
 	}
     
     public function option()
