@@ -50,7 +50,7 @@
                 if ($value['status']==1) {
                    $status = "LUNAS";
                 } else {
-                   $status = "BAYAR";
+                   $status = "<a href='".base_url("/admin/order/find")."/".$value['idorder']."'>BAYAR</a>" ;
                 }
                 
             ?>
