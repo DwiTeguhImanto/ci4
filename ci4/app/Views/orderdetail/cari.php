@@ -58,7 +58,7 @@
         
     </tr>
     <?php $no ?>
-    <?php foreach ($orderdetail as $key => $value):  ?>
+    <?php foreach ($orderdetail as $value):  ?>
 
     <tr>
         <td><?= $no++?></td>
@@ -74,7 +74,6 @@
 
 </table>
 
-<?= $pager->links('page','bootstrap') ?>
 </div>
 </div>
 
