@@ -25,6 +25,20 @@
         <h2>Rincian Order</h2>
     </div>
 </div>
+
+<div class="row">
+    <div class="col">
+        <?php
+        if (!empty(session()->getFlashdata('info'))) {
+            echo '<div class="alert alert-danger" role="alert">';
+            echo session()->getFlashdata('info');
+            echo '</div>';
+        }
+            
+        ?>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-6">
         <form action="<?= base_url()?>/admin/order/update" method="post">
