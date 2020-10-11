@@ -52,6 +52,31 @@ class User extends BaseController
         
         return redirect()->to(base_url("/admin/user"));
     }
+
+    public function delete($id = null)
+	{
+		
+		$model = new User_M();
+		$model -> delete($id);
+		return redirect()->to(base_url("/admin/user"));
+    }
+    
+    public function update($id=null,$isi=1)
+	{
+		$model = new User_M();
+		if ($isi == 0) {
+			$isi = 1;
+		} else {
+			$isi = 0;
+		}
+
+		$data = [
+			'aktif'=> $isi
+		];
+
+		$model->update($id,$data);
+		return redirect()->to(base_url("/admin/user"));
+	}
 	
 
 }

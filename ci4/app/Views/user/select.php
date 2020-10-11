@@ -46,7 +46,9 @@
         <td><?= $value['email'] ?></td>
         <td><?= $value['level'] ?></td>
         <?php if ($value['aktif']==1)$aktif="AKTIF"; else $aktif="BANNED"; ?>
-        <td><?= $aktif ?></td>
+        <td>
+            <a href="<?=base_url()?>/admin/user/update/<?= $value['iduser']?>/<?= $value['aktif'] ?>"><?= $aktif ?></a>
+        </td>
         <td>
             <a href="<?=base_url()?>/admin/user/delete/<?= $value['iduser'] ?>"><img src="<?=base_url('/icon/trashcan.svg')?>"></a>
             <a href="<?=base_url()?>/admin/user/find/<?= $value['iduser'] ?>"><img src="<?=base_url('/icon/pencilcan.svg')?>"></a>

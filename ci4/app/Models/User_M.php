@@ -10,6 +10,9 @@ class User_M extends  Model
 
     protected $allowedFields = ['user','email','password','level','aktif'];
 
+    protected $primaryKey = 'iduser';
+
+    
 }
 
 
