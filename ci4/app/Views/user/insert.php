@@ -3,11 +3,17 @@
 <?= $this->section('content') ?>
 
 <div class="col">
-    <?php
+<?php
     if (!empty(session()->getFlashdata('info'))) {
         echo '<div class="alert alert-danger" role="alert">';
-        echo session()->getFlashdata('info');
+        $error = session()->getFlashdata('info');
+        foreach ($error as $key => $value) {
+            echo $key.'=>'.$value;
+            echo "</br>";
+        }
+
         echo '</div>';
+        
     }
         
     ?>

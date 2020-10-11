@@ -38,19 +38,31 @@ class User extends BaseController
 
     public function insert()
     {
-        $model = new User_M();
-
-        $model -> insert($_POST);
-
-		// if ($model -> insert($_POST)===false) {
-		// 	$error = $model->errors();
-		// 	session()->setFlashdata('info', $error['user']);
-		// 	return redirect()->to(base_url("/admin/user/create"));
-		// }else {
-		// 	return redirect()->to(base_url("/admin/kategori"));
-        // }
         
-        return redirect()->to(base_url("/admin/user"));
+
+
+        if (isset($_POST['password'])) {
+            
+            $data = [
+                'user' => $_POST['user'],
+                'email' => $_POST['email'],
+                'password' =>password_hash($_POST['password'], PASSWORD_DEFAULT),
+                'level' => $_POST['level'],
+                'aktif' => 1
+            ];
+
+
+            $model = new User_M();
+
+            if ($model -> insert($data)===false) {
+                $error = $model->errors();
+                session()->setFlashdata('info', $error);
+                return redirect()->to(base_url("/admin/user/create"));
+            } else {
+                return redirect()->to(base_url("/admin/user"));
+            }
+        }
+
     }
 
     public function delete($id = null)
