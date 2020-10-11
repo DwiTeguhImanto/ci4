@@ -24,7 +24,34 @@ class User extends BaseController
 		return view("user/select",$data);
 	
 
-	}
+    }
+    
+    public function create()
+    {
+        $data = [
+            'level' => ['admin','chef','kasir']
+        ];
+
+        return view("user/insert",$data);
+        
+    }
+
+    public function insert()
+    {
+        $model = new User_M();
+
+        $model -> insert($_POST);
+
+		// if ($model -> insert($_POST)===false) {
+		// 	$error = $model->errors();
+		// 	session()->setFlashdata('info', $error['user']);
+		// 	return redirect()->to(base_url("/admin/user/create"));
+		// }else {
+		// 	return redirect()->to(base_url("/admin/kategori"));
+        // }
+        
+        return redirect()->to(base_url("/admin/user"));
+    }
 	
 
 }

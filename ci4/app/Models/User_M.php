@@ -8,6 +8,8 @@ class User_M extends  Model
     // read db
     protected $table = 'tbluser';
 
+    protected $allowedFields = ['user','email','password','level','aktif'];
+
 }
 
 
