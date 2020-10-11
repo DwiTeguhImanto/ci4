@@ -49,17 +49,12 @@ class Order extends BaseController
         $result = $db->query($sql);
         $row = $result->getResult('array');
 
-        echo "<pre>";
-        print_r($row);
-        echo "</pre>";
-        echo "<hr>";
+       
         $sql= "SELECT * FROM vorderdetail WHERE idorder=$id";
         $result = $db->query($sql);
         $detail = $result->getResult('array');
 
-        echo "<pre>";
-        print_r($detail);
-        echo "</pre>";
+     
 
         $data = [
             'judul' => 'Pembayaran Pelanggan',
