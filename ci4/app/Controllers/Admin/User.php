@@ -29,7 +29,7 @@ class User extends BaseController
     public function create()
     {
         $data = [
-            'level' => ['Admin','Koki','Kasir','Gudang']
+            'level' => ['Admin','Koki','Kasir']
         ];
 
         return view("user/insert",$data);
@@ -98,7 +98,7 @@ class User extends BaseController
 		$data = [
 			'judul' => 'UPDATE DATA USER',
             'user' => $user,
-            'level' => ['Admin','Koki','Kasir','Gudang']
+            'level' => ['Admin','Koki','Kasir']
 		];
 
 		return view("user/update",$data);

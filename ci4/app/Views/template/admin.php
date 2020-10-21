@@ -36,6 +36,7 @@
                     <li class="nav-item mt-2 ml-1">
                         <?php if (!empty(session()->get('level'))) {
                             echo session()->get('level');
+                            $level = session()->get('level');
                         } ?>
                     </li>
 
@@ -75,12 +76,23 @@
     <div class="col-4">
         <div class="card" style="width: 18rem;">
             <ul class="list-group list-group-flush">
+            <?php if($level==="Admin"): ?>
                 <li class="list-group-item"><a href="<?= base_url('/admin/kategori') ?>">Kategori</a></li>
                 <li class="list-group-item"><a href="<?= base_url('/admin/menu') ?>">Menu</a></li>
                 <li class="list-group-item"><a href="<?= base_url('/admin/pelanggan') ?>">Pelanggan</a></li>
                 <li class="list-group-item"><a href="<?= base_url('/admin/order') ?>">Order</a></li>
                 <li class="list-group-item"><a href="<?= base_url('/admin/orderdetail') ?>">Order Detail</a></li>
                 <li class="list-group-item"><a href="<?= base_url('/admin/user') ?>">user</a></li>
+            <?php endif; ?>
+
+            <?php if($level==="Kasir"): ?>
+                <li class="list-group-item"><a href="<?= base_url('/admin/order') ?>">Order</a></li>
+                <li class="list-group-item"><a href="<?= base_url('/admin/orderdetail') ?>">Order Detail</a></li>
+            <?php endif; ?>
+
+            <?php if($level==="Koki"): ?>
+                <li class="list-group-item"><a href="<?= base_url('/admin/orderdetail') ?>">Order Detail</a></li>
+            <?php endif; ?>
             </ul>
         </div>
     </div>

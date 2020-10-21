@@ -17,15 +17,21 @@ class Login extends BaseController
             $password = $this->request->getPost('password');
 
             $model = new User_M();
-            $user = $model->where(['email'=>$email, 'password'=>$password, 'aktif'=> 1])->first();
+            $user = $model->where(['email'=>$email,  'aktif'=> 1])->first();
 
             if (empty($user)) {
-                $data['info']= "User Atau Password Salah !";
+                $data['info']= "Email Salah !";
             } else {
-                $this->setSession($user);
-                return redirect()->to(base_url("/admin"));
+                if (password_verify($password, $user['password'])) {
+                    $this->setSession($user);
+                    return redirect()->to(base_url("/admin"));
+                } else {
+                    $data['info']= "Password Salah !";
+                }
+                
             }
-               
+            
+
         } else {
             # code...
         }
