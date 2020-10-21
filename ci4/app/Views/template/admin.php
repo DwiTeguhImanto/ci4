@@ -38,6 +38,10 @@
                             echo session()->get('level');
                         } ?>
                     </li>
+
+                    <li class="nav-item mt-2 ml-1">
+                       <a href="<?= base_url('admin/login/logout')?>">Logout</a>
+                    </li>
                     
                     </ul>
                 </div>
