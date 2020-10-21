@@ -23,31 +23,31 @@
 
 
 <div class="col">
-    <h3>  INSERT DATA USER</h3>
+    <h3><?= $judul ?></h3>
 </div>
 
+
 <div class="col-8">
-<form action="<?= base_url()?>/admin/user/insert" method="post">
+<form action="<?= base_url()?>/admin/user/ubah" method="post">
     <div class="form-group">
-        <label for="kategori">User</label>
-         <input type="text" class="form-control" name="user" required>
+        
+         <input type="hidden" value="<?=$user['iduser']?>" class="form-control" name="iduser" required>
     </div>
     
     <div class="form-group">
         <label for="keterangan">Email</label>
-        <input type="email" class="form-control" name="email" required>
+        <input type="email" class="form-control" value="<?=$user['email']?>" name="email" required>
     </div>
 
-    <div class="form-group">
-        <label for="keterangan">Password</label>
-        <input type="password" class="form-control" name="password" required>
-    </div>
+    
 
     <div class="form-group">
             <label for="">Level</label>
             <select class="form-control" name="level" id="idkategori">
                 <?php foreach ($level as $key ):  ?>
-                <option value="<?= $key ?>"><?= $key ?></option>
+                <option <?php if ($user['level']==$key) {
+                    echo "selected";
+                } ?> value="<?= $key ?>"><?= $key ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
