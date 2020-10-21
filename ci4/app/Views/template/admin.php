@@ -11,7 +11,38 @@
 <div class="container">
     <div class="row mt-2">
         <div class="col">
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="<?= base_url('/admin') ?>">Dashboard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item mt-2 ml-5"> User : </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link" href="#"><?php 
+                            if (!empty(session()->get('user'))) {
+                                echo session()->get('user');
+                            } ?> 
+                        <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item mt-2 ml-5">Email : </li>
+                    <li class="nav-item mt-2 ml-1">
+                        <?php if (!empty(session()->get('email'))) {
+                            echo session()->get('email');
+                        } ?>
+                    </li>
+                    <li class="nav-item mt-2 ml-5">Level : </li>
+                    <li class="nav-item mt-2 ml-1">
+                        <?php if (!empty(session()->get('level'))) {
+                            echo session()->get('level');
+                        } ?>
+                    </li>
+                    
+                    </ul>
+                </div>
+            </nav>
+            <!-- <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="<?= base_url('/admin') ?>">Admin Page</a>
 
             <div>
@@ -32,7 +63,7 @@
                 } ?>
             </div>
 
-            </nav>
+            </nav> -->
         </div>
     </div>
 
