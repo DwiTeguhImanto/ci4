@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=base_url('/bootstrap/css/bootstrap.min.css')?>">
-    <title>View Layout</title>
+    <title>Admin Layout</title>
 </head>
 <body>
 
@@ -13,6 +13,25 @@
         <div class="col">
             <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="<?= base_url('/admin') ?>">Admin Page</a>
+
+            <div>
+                <?php if (!empty(session()->get('user'))) {
+                    echo session()->get('user');
+                } ?>
+            </div>
+
+            <div>
+                <?php if (!empty(session()->get('email'))) {
+                    echo session()->get('email');
+                } ?>
+            </div>
+
+            <div>
+                <?php if (!empty(session()->get('level'))) {
+                    echo session()->get('level');
+                } ?>
+            </div>
+
             </nav>
         </div>
     </div>
