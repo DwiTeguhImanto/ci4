@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Okt 2020 pada 16.37
+-- Waktu pembuatan: 30 Nov 2020 pada 03.40
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -44,14 +44,7 @@ INSERT INTO `tblkategori` (`idkategori`, `kategori`, `keterangan`) VALUES
 (35, 'dessert', 'box'),
 (36, 'camilan', ''),
 (37, 'buah', 'manis'),
-(39, 'elektronik', 'technologi '),
-(44, 'elektronik jos', 'technologiku'),
-(45, 'aku', 'a'),
-(46, 'uiojdo', 'wuguw'),
-(47, 'cendol', 'oppo'),
-(48, 'flash data', 'lasg'),
-(49, 'tes', 'tes page'),
-(50, 'sayuran hijau ', 'sayuran hijau segar');
+(39, 'elektronik', 'technologi ');
 
 -- --------------------------------------------------------
 
@@ -72,9 +65,6 @@ CREATE TABLE `tblmenu` (
 --
 
 INSERT INTO `tblmenu` (`idmenu`, `idkategori`, `menu`, `gambar`, `harga`) VALUES
-(17, 28, 'spagetti ', 'sr1.jpg', 36900),
-(18, 28, 'sea shell toats', 'sr3.jpg', 28500),
-(19, 29, 'muffin baru', 'speaker.jpg', 18000),
 (20, 28, 'fruits salad', 'sr4.jpg', 22000),
 (21, 35, 'vanilla macaron', 'sr5.jpg', 12000),
 (23, 29, 'ice tea', 'drink-6.jpg', 16000),
@@ -95,7 +85,9 @@ INSERT INTO `tblmenu` (`idmenu`, `idkategori`, `menu`, `gambar`, `harga`) VALUES
 (38, 35, 'coklat hitam ', 'hitam3.jpg', 14000),
 (39, 28, 'bihun', 'cat-post-1.jpg', 1000),
 (45, 49, 'jaket', 'jacket.jpg', 50000),
-(46, 28, 'coba', 'usb.jpg', 5000);
+(46, 28, 'coba', 'usb.jpg', 5000),
+(47, 36, 'tango', 'tango.jpg', 5000),
+(48, 28, 'jagung bakar', 'tango.jpg', 5000);
 
 -- --------------------------------------------------------
 
@@ -139,7 +131,18 @@ INSERT INTO `tblorder` (`idorder`, `idpelanggan`, `tglorder`, `total`, `bayar`, 
 (38, 10, '2020-02-28', 24000, 0, 0, 0),
 (39, 8, '2020-03-18', 36000, 40000, 4000, 1),
 (40, 8, '2020-06-24', 16000, 100000, 84000, 1),
-(41, 8, '2020-08-04', 18000, 0, 0, 0);
+(41, 8, '2020-08-04', 18000, 0, 0, 0),
+(42, 2, '2020-11-29', 34000, 35000, 1000, 1),
+(43, 2, '2020-11-29', 5000, 0, 0, 0),
+(44, 11, '2020-11-30', 22000, 0, 0, 0),
+(45, 10, '2020-11-30', 16000, 0, 0, 0),
+(46, 10, '2020-11-30', 12000, 0, 0, 0),
+(47, 10, '2020-11-30', 18000, 0, 0, 0),
+(48, 10, '2020-11-30', 12000, 0, 0, 0),
+(49, 10, '2020-11-30', 16000, 0, 0, 0),
+(50, 10, '2020-11-30', 13000, 0, 0, 0),
+(51, 10, '2020-11-30', 28500, 0, 0, 0),
+(52, 10, '2020-11-30', 12000, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -184,7 +187,19 @@ INSERT INTO `tblorderdetail` (`idorderdetail`, `idorder`, `idmenu`, `jumlah`, `h
 (48, 38, 21, 2, 12000),
 (49, 40, 19, 2, 18000),
 (50, 40, 23, 1, 16000),
-(51, 41, 24, 1, 18000);
+(51, 41, 24, 1, 18000),
+(52, 42, 20, 1, 22000),
+(53, 42, 21, 1, 12000),
+(54, 43, 47, 1, 5000),
+(55, 44, 20, 1, 22000),
+(56, 45, 23, 1, 16000),
+(57, 46, 21, 1, 12000),
+(58, 47, 24, 1, 18000),
+(59, 48, 21, 1, 12000),
+(60, 49, 23, 1, 16000),
+(61, 50, 26, 1, 13000),
+(62, 51, 28, 1, 28500),
+(63, 52, 21, 1, 12000);
 
 -- --------------------------------------------------------
 
@@ -210,9 +225,10 @@ INSERT INTO `tblpelanggan` (`idpelanggan`, `pelanggan`, `alamat`, `telp`, `email
 (2, 'tejo', 'sidoarjo', '123456789', 'tejo@gmail.com', '123', 1),
 (3, 'juju', 'naga', '0987', 'naga@gmail.com', '12', 1),
 (6, 'tini', 'malang ', '0987', 'tini@gmail.com', '123', 1),
-(7, 'teguh', 'kebonsari', '089616607079', 'teguh@gmail.com', 'teguh', 0),
 (8, 'hyunjin', 'malang ', '4567', 'hyunjin@gmail.com', '90', 1),
-(9, 'ryujin', 'singasari', '0987687', 'ryujin@gmail.com', 'ryujin', 1);
+(9, 'ryujin', 'singasari', '0987687', 'ryujin@gmail.com', 'ryujin', 1),
+(10, 'coba', 'coba', '083906', 'coba@gmail.com', 'coba', 1),
+(11, 'karin', 'malang ', '08961660', 'karin@gmail.com', 'karin', 1);
 
 -- --------------------------------------------------------
 
@@ -236,7 +252,8 @@ CREATE TABLE `tbluser` (
 INSERT INTO `tbluser` (`iduser`, `user`, `email`, `password`, `level`, `aktif`) VALUES
 (22, 'kasir', 'kasir@gmail.com', '$2y$10$g2fHydQEIzNiic3Qy3/2kuph3ufMKYgpvqncNUJ49QOrQ9WS049Xi', 'Kasir', 1),
 (23, 'chef', 'koki@gmail.com', '$2y$10$7B6GM0A1tMz3bmZCqiycXuOp3/7jlc4iFV5nA1wYkyuz5x4eYQvt6', 'Koki', 1),
-(24, 'admin', 'admin@gmail.com', '$2y$10$edZIJqt4/8dOqGWj/ivyD..6QX/GXwRNqiDJBm.EJzxeZVxNgw9gG', 'Admin', 1);
+(24, 'admin', 'admin@gmail.com', '$2y$10$edZIJqt4/8dOqGWj/ivyD..6QX/GXwRNqiDJBm.EJzxeZVxNgw9gG', 'Admin', 1),
+(25, 'kasirr', 'kasirr@gmail.com', '$2y$10$IykX4LlCt4/hOUKtcsiaJufhTR7k.mwOX9aE./BYk8es1udvmsHuG', 'Kasir', 1);
 
 -- --------------------------------------------------------
 
@@ -357,37 +374,37 @@ ALTER TABLE `tbluser`
 -- AUTO_INCREMENT untuk tabel `tblkategori`
 --
 ALTER TABLE `tblkategori`
-  MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT untuk tabel `tblmenu`
 --
 ALTER TABLE `tblmenu`
-  MODIFY `idmenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `idmenu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `tblorder`
 --
 ALTER TABLE `tblorder`
-  MODIFY `idorder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `idorder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT untuk tabel `tblorderdetail`
 --
 ALTER TABLE `tblorderdetail`
-  MODIFY `idorderdetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idorderdetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT untuk tabel `tblpelanggan`
 --
 ALTER TABLE `tblpelanggan`
-  MODIFY `idpelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idpelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

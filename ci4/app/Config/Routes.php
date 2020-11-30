@@ -16,7 +16,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Login');
+$routes->setDefaultController('home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -63,7 +63,17 @@ $routes->group('admin', ['filter' => 'Auth'] , function ($routes){
 	$routes->add('user/find/(:any)','Admin\user::find/$1');
 	$routes->add('user/delete/(:any)','Admin\user::delete/$1');
 
+	
+
 });
+
+$routes->add('tambah_keranjang/(:num)','Keranjang::tambah_keranjang/$1', ['filter' => 'Pelanggan']);
+$routes->add('keranjang','Keranjang::index', ['filter' => 'Pelanggan']);
+$routes->add('kurang_pesanan/(:num)', 'Keranjang::min/$1', ['filter' => 'Pelanggan']);
+$routes->add('tambah_pesanan/(:num)', 'Keranjang::plus/$1', ['filter' => 'Pelanggan']);
+$routes->add('hapus_pesanan/(:num)', 'Keranjang::remove/$1', ['filter' => 'Pelanggan']);
+$routes->add('proses_pesan', 'Keranjang::prosesPesan', ['filter' => 'Pelanggan']);
+$routes->add('history', 'Home::history', ['filter' => 'Pelanggan']);
 
 
 /**
